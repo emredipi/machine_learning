@@ -19,19 +19,19 @@
                             :key="i"
                             :label="'w'+(i+1)"
                             filled
-                            v-model="weights[i]"
+                            v-model.number="weights[i]"
                         />
                     </v-col>
                     <v-col md="3">
-                        <v-text-field label="bias (1)" filled v-model="bias[0]"/>
-                        <v-text-field label="bias (2)" filled v-model="bias[1]"/>
+                        <v-text-field label="bias (1)" filled v-model.number="bias[0]"/>
+                        <v-text-field label="bias (2)" filled v-model.number="bias[1]"/>
 
-                        <v-text-field label="input (1)" filled v-model="inputs[0]"/>
-                        <v-text-field label="input (2)" filled v-model="inputs[1]"/>
+                        <v-text-field label="input (1)" filled v-model.number="inputs[0]"/>
+                        <v-text-field label="input (2)" filled v-model.number="inputs[1]"/>
 
 
-                        <v-text-field label="y_value (1)" filled v-model="y_values[0]"/>
-                        <v-text-field label="y_value (2)" filled v-model="y_values[1]"/>
+                        <v-text-field label="y_value (1)" filled v-model.number="y_values[0]"/>
+                        <v-text-field label="y_value (2)" filled v-model.number="y_values[1]"/>
                         <v-btn elevation="2" block color="primary" @click="calculate">
                             Hesapla
                         </v-btn>
@@ -116,10 +116,10 @@ export default {
             this.outputs.push({
                 title: 'Forward Propagation',
                 rows: [
-                    ["h1", h1, "h1_out", h1_out.toFixed(5)],
-                    ["h2", h2, "h2_out", h2_out.toFixed(5)],
-                    ["o1", o1, "o1_out", o1_out.toFixed(5)],
-                    ["o2", o2, "o2_out", o2_out.toFixed(5)],
+                    ["h1", h1.toFixed(5), "h1_out", h1_out.toFixed(5)],
+                    ["h2", h2.toFixed(5), "h2_out", h2_out.toFixed(5)],
+                    ["o1", o1.toFixed(5), "o1_out", o1_out.toFixed(5)],
+                    ["o2", o2.toFixed(5), "o2_out", o2_out.toFixed(5)],
                     ["Kayıp", this.loss(o1_out, y1, o2_out, y2).toFixed(5)]
                 ]
             });
@@ -183,14 +183,14 @@ export default {
             this.outputs.push({
                 title: 'Bakward Propagation',
                 rows: [
-                    ["old w1", w1, "new w1", new_w1.toFixed(5)],
-                    ["old w2", w2, "new w2", new_w2.toFixed(5)],
-                    ["old w3", w3, "new w3", new_w3.toFixed(5)],
-                    ["old w4", w4, "new w4", new_w4.toFixed(5)],
-                    ["old w5", w5, "new w5", new_w5.toFixed(5)],
-                    ["old w6", w6, "new w6", new_w6.toFixed(5)],
-                    ["old w7", w7, "new w7", new_w7.toFixed(5)],
-                    ["old w8", w8, "new w8", new_w8.toFixed(5)],
+                    ["old w1", w1.toFixed(5), "new w1", new_w1.toFixed(5)],
+                    ["old w2", w2.toFixed(5), "new w2", new_w2.toFixed(5)],
+                    ["old w3", w3.toFixed(5), "new w3", new_w3.toFixed(5)],
+                    ["old w4", w4.toFixed(5), "new w4", new_w4.toFixed(5)],
+                    ["old w5", w5.toFixed(5), "new w5", new_w5.toFixed(5)],
+                    ["old w6", w6.toFixed(5), "new w6", new_w6.toFixed(5)],
+                    ["old w7", w7.toFixed(5), "new w7", new_w7.toFixed(5)],
+                    ["old w8", w8.toFixed(5), "new w8", new_w8.toFixed(5)],
                 ]
             })
 
